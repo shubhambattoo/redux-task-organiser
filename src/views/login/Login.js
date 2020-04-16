@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from './../../common/styles/formStyles.module.css';
 import commonStyle from './../../common/styles/styles.module.css';
 import { firebaseApp } from '../../firebase/init';
 import { withRouter, Redirect, Link } from 'react-router-dom';
 import { Alert } from '../../common/alert/Alert';
+import { AuthContext } from '../../context/Auth';
 
 const Login = ({ history }) => {
   const [email, setEmail] = useState('');
@@ -26,13 +27,13 @@ const Login = ({ history }) => {
       });
   }
 
-  const currentUser = null;
-
   function closeAlert(isClose) {
     if (isClose) {
       setError('');
     }
   }
+
+  const { currentUser } = useContext(AuthContext);
 
   if (currentUser) {
     return <Redirect to="/" />;

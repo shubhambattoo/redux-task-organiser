@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from './Home.module.css';
 import commonStyles from './../../common/styles/styles.module.css';
 import { Link } from 'react-router-dom';
 import { Alert } from '../../common/alert/Alert';
 import { Loader } from '../../common/loader/Loader';
+import { AuthContext } from '../../context/Auth';
 
 export const Home = () => {
-  const { currentUser } = null;
+  const { currentUser } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [boards, setBoards] = useState([]);
 

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import { firebaseApp } from '../../firebase/init';
+import { AuthContext } from '../../context/Auth';
 
 export const Header = () => {
-  const currentUser = null;
+  const { currentUser } = useContext(AuthContext);
   const [isDropdown, setIsDropdown] = useState(false);
 
   function toggleDropdown() {
