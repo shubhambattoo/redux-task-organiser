@@ -288,3 +288,5 @@ async function getAllColumns(id, setColumns) {
   const resCols = await getColumns(id);
   setColumns(resCols);
 }
+
+export default Board;
