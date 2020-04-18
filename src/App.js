@@ -9,6 +9,7 @@ import Login from './views/login/Login';
 import { Header } from './components/header/Header';
 import Home from './views/home/Home';
 import CreateBoard from './views/create-board/CreateBoard';
+import { Board } from './views/board/Board';
 
 function App() {
   return (
@@ -17,11 +18,12 @@ function App() {
         <Router>
           <Header />
           <Switch>
-            <PrivateRoute exact path="/" component={Home} />
             <Route path="/signup" component={SignUp} />
             <Route path="/login" component={Login} />
+            <PrivateRoute exact path="/" component={Home} />
             <PrivateRoute path="/createboard" component={CreateBoard} />
-            <Route exact path="*" component={Home} />
+            <PrivateRoute path="/board/:name" component={Board} />
+            <PrivateRoute exact path="*" component={Home} />
           </Switch>
         </Router>
       </Provider>
