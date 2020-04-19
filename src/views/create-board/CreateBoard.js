@@ -58,6 +58,7 @@ export const CreateBoard = ({ history, handleAddBoard, serverError }) => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           id="name"
+          data-testid="name"
           placeholder="eg. Agile Sprint Board"
         />
       </div>
@@ -67,6 +68,7 @@ export const CreateBoard = ({ history, handleAddBoard, serverError }) => {
           type="text"
           name="team"
           id="team"
+          data-testid='team'
           value={teamMember}
           onChange={(e) => setTeamMember(e.target.value)}
           placeholder="Add your team members(separated by commas)"
@@ -78,6 +80,7 @@ export const CreateBoard = ({ history, handleAddBoard, serverError }) => {
           type="text"
           name="type"
           id="type"
+          data-testid='type'
           value={type}
           onChange={(e) => setType(e.target.value)}
           placeholder="eg. Design UX"
