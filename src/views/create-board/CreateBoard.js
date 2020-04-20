@@ -1,13 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import commonStyles from './../../common/styles/styles.module.css';
 import styles from './CreateBoard.module.css';
 import { Alert } from '../../common/alert/Alert';
-import { AuthContext } from '../../context/Auth';
 import { connect } from 'react-redux';
 import { handleAddBoard } from './../../redux/actions/boards';
 
 export const CreateBoard = ({ history, handleAddBoard, serverError }) => {
-  const { currentUser } = useContext(AuthContext);
   const [name, setName] = useState('');
   const [teamMember, setTeamMember] = useState('');
   const [type, setType] = useState('');
@@ -21,7 +19,7 @@ export const CreateBoard = ({ history, handleAddBoard, serverError }) => {
     const teamMembers = teamMember.split(',').map((el) => el.trim());
 
     const newBoard = {
-      user: currentUser.email,
+      user: 'admin@company.com',
       name,
       teamMembers,
       type,
@@ -58,6 +56,7 @@ export const CreateBoard = ({ history, handleAddBoard, serverError }) => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           id="name"
+          data-testid="name"
           placeholder="eg. Agile Sprint Board"
         />
       </div>
@@ -67,6 +66,7 @@ export const CreateBoard = ({ history, handleAddBoard, serverError }) => {
           type="text"
           name="team"
           id="team"
+          data-testid='team'
           value={teamMember}
           onChange={(e) => setTeamMember(e.target.value)}
           placeholder="Add your team members(separated by commas)"
@@ -78,6 +78,7 @@ export const CreateBoard = ({ history, handleAddBoard, serverError }) => {
           type="text"
           name="type"
           id="type"
+          data-testid='type'
           value={type}
           onChange={(e) => setType(e.target.value)}
           placeholder="eg. Design UX"
