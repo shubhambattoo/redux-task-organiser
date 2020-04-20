@@ -7,21 +7,11 @@ import {
   cleanup,
   getByTestId,
 } from '@testing-library/react';
-import { AuthContext } from '../../context/Auth';
-
-const currentUser = {
-  displayName: 'Shubham Battoo',
-  email: 'shubham@gmail.com',
-};
 
 let container;
 afterEach(cleanup);
 beforeEach(() => {
-  container = render(
-    <AuthContext.Provider value={currentUser}>
-      <CreateBoard />
-    </AuthContext.Provider>
-  ).container;
+  container = render(<CreateBoard />).container;
 });
 
 it('should change the value of input name', () => {
