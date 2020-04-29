@@ -19,7 +19,7 @@ export const CreateBoard = ({ history, handleAddBoard, serverError }) => {
     const teamMembers = teamMember.split(',').map((el) => el.trim());
 
     const newBoard = {
-      user: 'admin@company.com',
+      user: 'admin@jones.com',
       name,
       teamMembers,
       type,
